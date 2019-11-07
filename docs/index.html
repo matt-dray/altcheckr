@@ -62,13 +62,26 @@
 <div id="altcheckr" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#altcheckr" class="anchor"></a>altcheckr</h1></div>
-<p>Inspect a webpage for problems with the accessibility of image alt text.</p>
+<p>An R package to inspect a webpage for problems with the accessibility of image alt text.</p>
 <p>A work in progress.</p>
 <div id="context" class="section level2">
 <h2 class="hasAnchor">
 <a href="#context" class="anchor"></a>Context</h2>
 <p>Images on websites should have descriptive text so that users of assistive technology can understand their content.</p>
 <p>Functions in this package help collect and inspect the images from a provided page for basic problems.</p>
+<p>## Install</p>
+<p>Install from GitHub with:</p>
+<pre><code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages("remotes")
+remotes::install_github("mattdray/altcheckr")
+library(altcheckr)</a></code></pre>
+<p>## Use</p>
+<p>There are two major functions for now:</p>
+<ul>
+<li>
+<code><a href="reference/alt_get_attr.html">alt_get_attr()</a></code> gets the attributes for each image from a provided webpage</li>
+<li>
+<code><a href="reference/alt_check.html">alt_check()</a></code> checks each image for problems</li>
+</ul>
 </div>
 <div id="resources" class="section level2">
 <h2 class="hasAnchor">

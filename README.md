@@ -1,6 +1,6 @@
 # altcheckr
 
-Inspect a webpage for problems with the accessibility of image alt text.
+An R package to inspect a webpage for problems with the accessibility of image alt text.
 
 A work in progress.
 
@@ -9,6 +9,23 @@ A work in progress.
 Images on websites should have descriptive text so that users of assistive technology can understand their content.
 
 Functions in this package help collect and inspect the images from a provided page for basic problems.
+
+## Install
+
+Install from GitHub with:
+
+```
+install.packages("remotes")
+remotes::install_github("mattdray/altcheckr")
+library(altcheckr)
+```
+
+## Use
+
+There are two major functions for now:
+
+* `alt_get_attr()` gets the attributes for each image from a provided webpage
+* `alt_check()` checks each image for problems
 
 ## Resources
 
