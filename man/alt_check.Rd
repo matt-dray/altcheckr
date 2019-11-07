@@ -2,16 +2,16 @@
 % Please edit documentation in R/ingest.R
 \name{alt_check}
 \alias{alt_check}
-\title{Suggest Alt Tag Oddities}
+\title{Check for Alt Tag Problems}
 \usage{
 alt_check(attr_df)
 }
 \arguments{
-\item{attr_df}{A data.frame with image attributes produced by alt_get_attr()}
+\item{attr_df}{A data.frame/tibble with image attributes produced by \code{altcheckr::alt_get_attr()}.}
 }
 \value{
-A data.frame object.
+A data.frame/tibble object.
 }
 \description{
-Infer whether the alt tag is missing or strange.
+Infer whether an image's alt tag is missing or could be improved.
 }

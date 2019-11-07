@@ -13,5 +13,5 @@ alt_get_attr(url)
 A data.frame object.
 }
 \description{
-Scrapes a web page for the image tag and extracts the tags into a data frame.
+Scrapes a web page and extracts the image tags into a data frame.
 }

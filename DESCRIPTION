@@ -2,8 +2,7 @@ Package: altcheckr
 Title: Check Image Alt Text on Websites
 Version: 0.0.0.9000
 Authors@R: person("Matt", "Dray", email = "mwdray@gmail.com", role = c("aut", "cre"))
-Description: Scrape website image information for accessibility oddities in the
-    alt text.
+Description: Inspect a webpage for problems with the accessibility of image alt text.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
