@@ -2,7 +2,7 @@
 % Please edit documentation in R/ingest.R
 \name{alt_get_attr}
 \alias{alt_get_attr}
-\title{Get the Image Attributes for a Given Page}
+\title{Get a Web Page's Image Attributes}
 \usage{
 alt_get_attr(url)
 }

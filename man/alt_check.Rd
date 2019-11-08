@@ -2,7 +2,7 @@
 % Please edit documentation in R/ingest.R
 \name{alt_check}
 \alias{alt_check}
-\title{Check for Alt Tag Problems}
+\title{Check for Image Alt Tag Problems}
 \usage{
 alt_check(attr_df)
 }

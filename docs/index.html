@@ -62,19 +62,24 @@
 <div id="altcheckr" class="section level1">
 <div class="page-header"><h1 class="hasAnchor">
 <a href="#altcheckr" class="anchor"></a>altcheckr</h1></div>
-<p>An R package to inspect a webpage for problems with the accessibility of image alt text.</p>
-<p>A work in progress.</p>
+<p>An R package to inspect a webpage for problems with the accessibility of image alt text. Under development.</p>
 <div id="context" class="section level2">
 <h2 class="hasAnchor">
 <a href="#context" class="anchor"></a>Context</h2>
 <p>Images on websites should have descriptive text so that users of assistive technology can understand their content.</p>
 <p>Functions in this package help collect and inspect the images from a provided page for basic problems.</p>
-<p>## Install</p>
+</div>
+<div id="install" class="section level2">
+<h2 class="hasAnchor">
+<a href="#install" class="anchor"></a>Install</h2>
 <p>Install from GitHub with:</p>
 <pre><code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages("remotes")
 remotes::install_github("mattdray/altcheckr")
 library(altcheckr)</a></code></pre>
-<p>## Use</p>
+</div>
+<div id="use" class="section level2">
+<h2 class="hasAnchor">
+<a href="#use" class="anchor"></a>Use</h2>
 <p>There are two major functions for now:</p>
 <ul>
 <li>
@@ -82,18 +87,26 @@ library(altcheckr)</a></code></pre>
 <li>
 <code><a href="reference/alt_check.html">alt_check()</a></code> checks each image for problems</li>
 </ul>
+<p>Right now, <code><a href="reference/alt_check.html">alt_check()</a></code> considers alt text that’s:</p>
+<ul>
+<li>missing (but this is okay if the image is decorative)</li>
+<li>long (currently greater than an arbitrary 200 characters)</li>
+<li>short (currently smaller than an arbitrary 50 characters)</li>
+<li>self-evident (‘image of’, ‘picture of’)</li>
+<li>missing punctuation (just the terminal full stop for now)</li>
+</ul>
 </div>
 <div id="resources" class="section level2">
 <h2 class="hasAnchor">
 <a href="#resources" class="anchor"></a>Resources</h2>
 <ul>
+<li>Wikipedia’s page for <a href="https://en.wikipedia.org/wiki/Alt_attribute">the alt attribute</a>
+</li>
+<li>Royal National Institute of Blind People’s (RNIB) <a href="https://www.rnib.org.uk/accessibility-guidelines-alt-text-what-you-need-know">accessibility guidelines for alt text</a>
+</li>
+<li>W3C’s <a href="https://www.w3.org/WAI/tutorials/images/">web accessibility tutorials on images</a>, including <a href="https://www.w3.org/WAI/tutorials/images/decision-tree/">a decision tree for using alt text</a>
+</li>
 <li>Web Content Accessibility Guidelines (WCAG) <a href="https://www.w3.org/WAI/standards-guidelines/wcag/">overview</a>
-</li>
-<li>W3C’s <a href="https://www.w3.org/WAI/alt/">resources on alternative text for images</a>
-</li>
-<li>W3C Working Group Note: <a href="">using <code>alt</code> attributes on <code>img</code> elements</a>
-</li>
-<li>W3C’s <a href="https://www.w3.org/WAI/tutorials/images/">web accessibility tutorials on images</a>
 </li>
 </ul>
 </div>
