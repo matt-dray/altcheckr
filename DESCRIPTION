@@ -10,5 +10,6 @@ Imports:
     rvest,
     xml2,
     purrr,
-    dplyr
+    dplyr,
+    stringr
 RoxygenNote: 6.1.1
