@@ -8,6 +8,15 @@
 \description{
 Inspect a webpage for problems with the accessibility of image alt text.
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/matt-dray/altcheckr/}
+  \item \url{https://matt-dray.github.io/altcheckr/}
+  \item Report bugs at \url{https://github.com/matt-dray/altcheckr/issues}
+}
+
+}
 \author{
 \strong{Maintainer}: Matt Dray \email{mwdray@gmail.com}
 

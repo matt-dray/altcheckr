@@ -1,5 +1,7 @@
 # altcheckr
 
+[![Travis build status](https://travis-ci.org/matt-dray/altcheckr.svg?branch=master)](https://travis-ci.org/matt-dray/altcheckr)
+
 An R package to inspect a webpage for problems with the accessibility of image alt text. Under development.
 
 ## Context

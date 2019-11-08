@@ -4,6 +4,8 @@ Version: 0.0.0.9000
 Authors@R: person("Matt", "Dray", email = "mwdray@gmail.com", role = c("aut", "cre"))
 Description: Inspect a webpage for problems with the accessibility of image alt text.
 License: MIT + file LICENSE
+URL: https://github.com/matt-dray/altcheckr/, https://matt-dray.github.io/altcheckr/
+BugReports: https://github.com/matt-dray/altcheckr/issues
 Encoding: UTF-8
 LazyData: true
 Imports:
@@ -11,5 +13,9 @@ Imports:
     xml2,
     purrr,
     dplyr,
-    stringr
+    stringr,
+    magrittr,
+    rlang
 RoxygenNote: 6.1.1
+Suggests: 
+    testthat
