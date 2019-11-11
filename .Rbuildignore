@@ -1,3 +1,5 @@
+^CODE_OF_CONDUCT\.md$
+^codecov\.yml$
 ^\.travis\.yml$
 ^altcheckr\.Rproj$
 ^\.Rproj\.user$
