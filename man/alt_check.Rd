@@ -2,15 +2,27 @@
 % Please edit documentation in R/check.R
 \name{alt_check}
 \alias{alt_check}
-\title{Check for Image Alt Tag Problems}
+\title{Check for Problems with the Alt Text for Images on a Web Page}
 \usage{
-alt_check(attr_df)
+alt_check(attr_df, max_char = 200, min_char = 50,
+  redundant_pattern = "image of|picture of|photo of|image showing|picture showing")
 }
 \arguments{
-\item{attr_df}{A data.frame/tibble with image attributes produced by \code{altcheckr::alt_get_attr()}.}
+\item{attr_df}{A data.frame/tibble with image attributes, produced by
+\code{altcheckr::alt_get()}.}
+
+\item{max_char}{A numeric value. If the number of characters in the alt
+text is larger than this then it's flagged as being long}
+
+\item{min_char}{A numeric value. If the number of characters in the alt
+text is smaller than this then it's flagged as being short.}
+
+\item{redundant_pattern}{A character string. Regular expression for phrase(s)
+to flag as being redundant in alt text ("A picture of" isn't necessary,
+for example).}
 }
 \value{
-A data.frame/tibble object.
+A tibble object with classes "tbl_df", "tbl", "data.frame".
 }
 \description{
 Infer whether an image's alt tag is missing or could be improved.

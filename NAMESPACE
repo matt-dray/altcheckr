@@ -2,6 +2,6 @@
 
 export("%>%")
 export(alt_check)
-export(alt_get_attr)
+export(alt_get)
 importFrom(magrittr,"%>%")
 importFrom(rlang,.data)
