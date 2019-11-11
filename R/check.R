@@ -14,7 +14,7 @@
 #' @importFrom rlang .data
 #' @export
 
-alt_check <- function(attributes_df, max_char = 200, min_char = 50, redundant_pattern = "image|picture|photo") {
+alt_check <- function(attributes_df, max_char = 200, min_char = 50, redundant_pattern = "image|picture|photo|graph|plot|diagram") {
   
   # Stop if not a data frame
   if (!all(class(attributes_df) %in% c("tbl_df", "tbl", "data.frame"))) {
@@ -45,10 +45,18 @@ alt_check <- function(attributes_df, max_char = 200, min_char = 50, redundant_pa
     ),
     
     # Check for self-evident phrases
-    self_evident = ifelse(stringr::str_detect(tolower(.data$alt), tolower(redundant_pattern)), TRUE, FALSE),
+    self_evident = dplyr::case_when(
+      .data$alt_exists %in% c("Missing", "Empty") | is.na(.data$alt_exists) ~ NA,
+      stringr::str_detect(tolower(.data$alt), tolower(redundant_pattern)) ~ TRUE,
+      TRUE ~ FALSE
+    ),
     
     # Check for terminal punctuation
-    terminal_period = ifelse(stringr::str_detect(.data$alt, "\\.$"), TRUE, FALSE),
+    terminal_period = dplyr::case_when(
+      .data$alt_exists %in% c("Missing", "Empty") | is.na(.data$alt_exists) ~ NA,
+      stringr::str_detect(.data$alt, "\\.$") ~ TRUE,
+      TRUE ~ FALSE
+    ),
     
     # Highlight possible incorrect spellings
     spellcheck = dplyr::case_when(
