@@ -115,6 +115,7 @@
     </div>
 
     <pre class="usage"><span class='fu'>alt_check</span>(<span class='no'>attributes_df</span>, <span class='kw'>max_char</span> <span class='kw'>=</span> <span class='fl'>200</span>, <span class='kw'>min_char</span> <span class='kw'>=</span> <span class='fl'>50</span>,
+  <span class='kw'>file_ext</span> <span class='kw'>=</span> <span class='st'>".jpg$|.jpeg$|.png$|.svg$|.gif$"</span>,
   <span class='kw'>redundant_pattern</span> <span class='kw'>=</span> <span class='st'>"image|picture|photo|graph|plot|diagram"</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
@@ -134,6 +135,11 @@ text is larger than this then it's flagged as being long</p></td>
       <th>min_char</th>
       <td><p>A numeric value. If the number of characters in the alt
 text is smaller than this then it's flagged as being short.</p></td>
+    </tr>
+    <tr>
+      <th>file_ext</th>
+      <td><p>A character string. Regular expression of image file
+extensions that might signify a file name has been used for the alt text.</p></td>
     </tr>
     <tr>
       <th>redundant_pattern</th>

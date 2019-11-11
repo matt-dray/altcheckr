@@ -5,6 +5,7 @@
 \title{Check for Problems with the Alt Text for Images on a Web Page}
 \usage{
 alt_check(attributes_df, max_char = 200, min_char = 50,
+  file_ext = ".jpg$|.jpeg$|.png$|.svg$|.gif$",
   redundant_pattern = "image|picture|photo|graph|plot|diagram")
 }
 \arguments{
@@ -16,6 +17,9 @@ text is larger than this then it's flagged as being long}
 
 \item{min_char}{A numeric value. If the number of characters in the alt
 text is smaller than this then it's flagged as being short.}
+
+\item{file_ext}{A character string. Regular expression of image file
+extensions that might signify a file name has been used for the alt text.}
 
 \item{redundant_pattern}{A character string. Regular expression for phrase(s)
 to flag as being redundant in alt text ("A picture of" isn't necessary,
