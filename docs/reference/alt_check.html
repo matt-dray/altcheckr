@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Check for Image Alt Tag Problems — alt_check • altcheckr</title>
+<title>Check for Problems with the Alt Text for Images on a Web Page — alt_check • altcheckr</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -32,7 +32,7 @@
 
 
 
-<meta property="og:title" content="Check for Image Alt Tag Problems — alt_check" />
+<meta property="og:title" content="Check for Problems with the Alt Text for Images on a Web Page — alt_check" />
 
 <meta property="og:description" content="Infer whether an image's alt tag is missing or could be improved." />
 <meta name="twitter:card" content="summary" />
@@ -103,7 +103,7 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Check for Image Alt Tag Problems</h1>
+    <h1>Check for Problems with the Alt Text for Images on a Web Page</h1>
     <small class="dont-index">Source: <a href='https://github.com/matt-dray/altcheckr/blob/master/R/check.R'><code>R/check.R</code></a></small>
     <div class="hidden name"><code>alt_check.Rd</code></div>
     </div>
@@ -114,20 +114,38 @@
     
     </div>
 
-    <pre class="usage"><span class='fu'>alt_check</span>(<span class='no'>attr_df</span>)</pre>
+    <pre class="usage"><span class='fu'>alt_check</span>(<span class='no'>attr_df</span>, <span class='kw'>max_char</span> <span class='kw'>=</span> <span class='fl'>200</span>, <span class='kw'>min_char</span> <span class='kw'>=</span> <span class='fl'>50</span>,
+  <span class='kw'>redundant_pattern</span> <span class='kw'>=</span> <span class='st'>"image of|picture of|photo of|image showing|picture showing"</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>attr_df</th>
-      <td><p>A data.frame/tibble with image attributes produced by <code><a href='alt_get_attr.html'>altcheckr::alt_get_attr()</a></code>.</p></td>
+      <td><p>A data.frame/tibble with image attributes, produced by
+<code><a href='alt_get.html'>altcheckr::alt_get()</a></code>.</p></td>
+    </tr>
+    <tr>
+      <th>max_char</th>
+      <td><p>A numeric value. If the number of characters in the alt
+text is larger than this then it's flagged as being long</p></td>
+    </tr>
+    <tr>
+      <th>min_char</th>
+      <td><p>A numeric value. If the number of characters in the alt
+text is smaller than this then it's flagged as being short.</p></td>
+    </tr>
+    <tr>
+      <th>redundant_pattern</th>
+      <td><p>A character string. Regular expression for phrase(s)
+to flag as being redundant in alt text ("A picture of" isn't necessary,
+for example).</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A data.frame/tibble object.</p>
+    <p>A tibble object with classes "tbl_df", "tbl", "data.frame".</p>
     
 
   </div>

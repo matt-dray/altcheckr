@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Get a Web Page's Image Attributes — alt_get_attr • altcheckr</title>
+<title>Get HTML Attributes from the Image Elements of a Web Page — alt_get_attr • altcheckr</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -32,9 +32,10 @@
 
 
 
-<meta property="og:title" content="Get a Web Page's Image Attributes — alt_get_attr" />
+<meta property="og:title" content="Get HTML Attributes from the Image Elements of a Web Page — alt_get_attr" />
 
-<meta property="og:description" content="Scrapes a web page and extracts the image tags into a data frame." />
+<meta property="og:description" content="Scrape a web page's HTML and extract into a tibble the attributes
+    from each image element. Only collects attributes if they exist." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -103,31 +104,38 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Get a Web Page's Image Attributes</h1>
+    <h1>Get HTML Attributes from the Image Elements of a Web Page</h1>
     <small class="dont-index">Source: <a href='https://github.com/matt-dray/altcheckr/blob/master/R/read.R'><code>R/read.R</code></a></small>
     <div class="hidden name"><code>alt_get_attr.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Scrapes a web page and extracts the image tags into a data frame.</p>
+    <p>Scrape a web page's HTML and extract into a tibble the attributes
+    from each image element. Only collects attributes if they exist.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>alt_get_attr</span>(<span class='no'>url</span>)</pre>
+    <pre class="usage"><span class='fu'>alt_get_attr</span>(<span class='no'>url</span>, <span class='kw'>all_attributes</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>url</th>
-      <td><p>A string describing the URL of a webpage.</p></td>
+      <td><p>A character string describing the URL of a webpage.</p></td>
+    </tr>
+    <tr>
+      <th>url</th>
+      <td><p>Logical. Do you want to return all the image attributes
+(<code>TRUE</code>), or just the <code>src</code> (image source) and <code>alt</code>
+(alt text) attributes (<code>FALSE</code>)?</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A data.frame object.</p>
+    <p>A tibble object with classes "tbl_df", "tbl", "data.frame").</p>
     
 
   </div>
