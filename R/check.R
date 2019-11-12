@@ -71,16 +71,9 @@ alt_check <- function(
     ),
     
     # Highlight possible incorrect spellings
-    spellcheck = dplyr::case_when(
-      .data$alt_exists %in% c("Empty", "Missing") ~ NA_character_,
-      is.na(.data$alt_exists) ~ NA_character_,
-      .data$alt_exists == "Exists" &
-        length(hunspell::hunspell(.data$alt)[[1]]) == 0 ~ "OK",
-      .data$alt_exists == "Exists" &
-        length(hunspell::hunspell(.data$alt)[[1]]) > 0 ~ paste(
-          "Check: ", hunspell::hunspell(.data$alt)[[1]], collapse = ", "
-        )
-    ),
+    spellcheck = paste(hunspell::hunspell(.data$alt)),
+    spellcheck = ifelse(spellcheck == "character(0)" | spellcheck == "NULL", NA, paste(spellcheck)),
+    spellcheck = stringr::str_replace_all(spellcheck, "c\\(|\\\"|\\)", ""),
     
     # Give readability score
     readability = ifelse(
