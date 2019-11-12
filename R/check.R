@@ -17,7 +17,7 @@
 #' @export
 
 alt_check <- function(
-  attributes_df, max_char = 200, min_char = 50,
+  attributes_df, max_char = 125, min_char = 20,
   file_ext = ".jpg$|.jpeg$|.png$|.svg$|.gif$",
   redundant_pattern = "image|picture|photo|graph|plot|diagram") {
   
