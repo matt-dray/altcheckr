@@ -34,8 +34,8 @@
 
 <meta property="og:title" content="Get HTML Attributes from the Image Elements of a Web Page — alt_get" />
 
-<meta property="og:description" content="Scrape a web page's HTML and extract into a tibble the attributes
-    from each image element. Only collects attributes if they exist." />
+<meta property="og:description" content="Scrape a web page's HTML and extract the attributes from each
+    image element (&amp;lt;img&amp;gt;) on that page." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -111,8 +111,8 @@
 
     <div class="ref-description">
     
-    <p>Scrape a web page's HTML and extract into a tibble the attributes
-    from each image element. Only collects attributes if they exist.</p>
+    <p>Scrape a web page's HTML and extract the attributes from each
+    image element (<code>&lt;img&gt;</code>) on that page.</p>
     
     </div>
 
@@ -127,17 +127,29 @@
     </tr>
     <tr>
       <th>all_attributes</th>
-      <td><p>Logical. Do you want to return all the image attributes
-(<code>TRUE</code>), or just the <code>src</code> (image source) and <code>alt</code>
-(alt text) attributes (<code>FALSE</code>)?</p></td>
+      <td><p>Logical. Do you want to return <em>all</em> the image
+attributes as columns or just <code>src</code>, <code>alt</code> and <code>longdesc</code>?</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>A tibble object with classes "tbl_df", "tbl", "data.frame").</p>
+    <p>A tibble object with classes <code>tbl_df</code>, <code>tbl</code> and
+    <code>data.frame</code>. One row per image element and one column per attribute,
+    unless (<code>all_attributes = FALSE</code>), which returns only:</p><ul>
+<li><p><code>src</code> The source of the image as a filepath.</p></li>
+<li><p><code>alt</code> The alternative (alt) text for the image.</p></li>
+<li><p><code>longdesc</code> The path to a file that contains a longer
+        description for complex images (only returned if present).</p></li>
+</ul>
+
     
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+    <span class='no'>test_url</span> <span class='kw'>&lt;-</span> <span class='st'>"https://alphagov.github.io/accessibility-tool-audit/test-cases.html#images"</span>
+    <span class='fu'>alt_get</span>(<span class='kw'>url</span> <span class='kw'>=</span> <span class='no'>test_url</span>)
+    }</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -145,7 +157,9 @@
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
-          </ul>
+      
+      <li><a href="#examples">Examples</a></li>
+    </ul>
 
   </div>
 </div>

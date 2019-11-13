@@ -9,14 +9,27 @@ alt_get(url, all_attributes = FALSE)
 \arguments{
 \item{url}{A character string describing the URL of a webpage.}
 
-\item{all_attributes}{Logical. Do you want to return all the image attributes
-(\code{TRUE}), or just the \code{src} (image source) and \code{alt}
-(alt text) attributes (\code{FALSE})?}
+\item{all_attributes}{Logical. Do you want to return \emph{all} the image
+attributes as columns or just \code{src}, \code{alt} and \code{longdesc}?}
 }
 \value{
-A tibble object with classes "tbl_df", "tbl", "data.frame").
+A tibble object with classes \code{tbl_df}, \code{tbl} and
+    \code{data.frame}. One row per image element and one column per attribute,
+    unless (\code{all_attributes = FALSE}), which returns only:
+    \itemize{
+        \item \code{src} The source of the image as a filepath.
+        \item \code{alt} The alternative (alt) text for the image.
+        \item \code{longdesc} The path to a file that contains a longer
+        description for complex images (only returned if present).
+    }
 }
 \description{
-Scrape a web page's HTML and extract into a tibble the attributes
-    from each image element. Only collects attributes if they exist.
+Scrape a web page's HTML and extract the attributes from each
+    image element (\code{<img>}) on that page.
+}
+\examples{
+\dontrun{
+    test_url <- "https://alphagov.github.io/accessibility-tool-audit/test-cases.html#images"
+    alt_get(url = test_url)
+    }
 }

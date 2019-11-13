@@ -1,20 +1,46 @@
 #' Check for Problems with the Alt Text for Images on a Web Page
 #'
 #' @description Infer whether an image's alt tag is missing or could be improved.
+#' 
 #' @param attributes_df A data.frame/tibble with image attributes, produced by
-#'     \code{altcheckr::alt_get()}.
+#'     \code{\link{alt_get}}.
 #' @param min_char A numeric value. If the number of characters in the alt
 #'     text is smaller than this then it's flagged as being short.
 #' @param max_char A numeric value. If the number of characters in the alt
 #'     text is larger than this then it's flagged as being long
 #' @param file_ext A character string. Regular expression of image file
 #'     extensions that might signify a file name has been used for the alt text.
-#' @param redundant_pattern A character string. Regular expression for phrase(s)
+#' @param redundant_pattern A character string. Regular expression of phrases
 #'     to flag as being redundant in alt text ("A picture of" isn't necessary,
 #'     for example).
-#' @return A tibble object with classes "tbl_df", "tbl", "data.frame".
+#' 
+#' @return A tibble object with classes \code{tbl_df}, \code{tbl} and
+#'     \code{data.frame}. In addition to columns provided by
+#'     \code{\link{alt_get}}, also returns:
+#'     \itemize{
+#'         \item \code{alt_exists} "Exists", "Missing" or intentionally "Empty".
+#'         \item \code{char_length} "Short", "Long" or "OK", depending on inputs
+#'             to \code{min_char} and \code{max_char}.
+#'         \item \code{file_ext} Logical. Does it look like the alt text might
+#'             just be a filename (e.g. ends with ".jpg")?
+#'         \item \code{self_evident} Logical. Is a redundant phrase used in the
+#'             alt text (e.g. "a picture of")?
+#'         \item \code{terminal_period} Logical. Does the alt text end with a 
+#'             period to allow better parsing by screen readers?
+#'         \item \code{spellcheck} Words to check for spelling. These could be
+#'             misread by a screenreader. 
+#'         \item \code{readability} Flesch's Reading Ease Score (Flesch 1948).
+#'      }
+#' 
 #' @importFrom rlang .data
+#' 
 #' @export
+#' 
+#' @examples \dontrun{
+#'     url <- "https://alphagov.github.io/accessibility-tool-audit/test-cases.html#images"
+#'     attr_df <- alt_get(url)
+#'     alt_check(attr_df)
+#'     }
 
 alt_check <- function(
   attributes_df, max_char = 125, min_char = 20,
@@ -72,8 +98,11 @@ alt_check <- function(
     
     # Highlight possible incorrect spellings
     spellcheck = paste(hunspell::hunspell(.data$alt)),
-    spellcheck = ifelse(spellcheck == "character(0)" | spellcheck == "NULL", NA, paste(spellcheck)),
-    spellcheck = stringr::str_replace_all(spellcheck, "c\\(|\\\"|\\)", ""),
+    spellcheck = ifelse(
+      .data$spellcheck == "character(0)" | .data$spellcheck == "NULL",
+      NA, paste(.data$spellcheck)
+    ),
+    spellcheck = stringr::str_replace_all(.data$spellcheck, "c\\(|\\\"|\\)", ""),
     
     # Give readability score
     readability = ifelse(
