@@ -1,21 +1,19 @@
 # altcheckr
 
+An in-development R package to assess the alternative (alt) text from a web page.
+
 <!-- badges: start -->
 [![Travis build status](https://travis-ci.org/matt-dray/altcheckr.svg?branch=master)](https://travis-ci.org/matt-dray/altcheckr)
 [![Coverage status](https://codecov.io/gh/matt-dray/altcheckr/branch/master/graph/badge.svg)](https://codecov.io/github/matt-dray/altcheckr?branch=master)
 <!-- badges: end -->
 
-An R package to inspect a web page for problems with the accessibility of image alt text. Under development.
+## Description
 
-## Context
+Scrape image element attributes from a webpage, detect alternative (alt) text and assess it with simple heuristics. Alt text is important for users of assistive technologies, like screen readers, for understanding the content of images. This package should be used in conjunction with other accessibility assessment tools for more comprehensive coverage.
 
-Images on websites should have descriptive text so that users of assistive technology can understand their content.
+## Use
 
-Functions in this package help collect and inspect the images from a provided page for basic problems.
-
-## Install
-
-Install from GitHub with:
+Install from GitHub using the {remotes} package:
 
 ```
 install.packages("remotes")
@@ -23,14 +21,12 @@ remotes::install_github("matt-dray/altcheckr")
 library(altcheckr)
 ```
 
-## Use
-
 There are two major functions for now:
 
 * `alt_get()` creates a tibble of HTML attributes for each 'img' element on a supplied web page
 * `alt_check()` performs basic checks of the alt text for each image
 
-The `alt_get()` function uses {xml2} and {rvest} to scrape a given web page and extract image attributes, with a little bit of {purrr} to get it into a data frame.
+See the 'introduction to {altcheckr} functions' vignette for more information: run `vignette("introduction", altchekr)` or visit [the {altcheckr} website](https://www.matt-dray.github.io/altcheckr/articles/introduction.html).
 
 Right now, the `alt_check()` function flags when alt text:
 
@@ -44,7 +40,7 @@ And it also:
 * highlights words that may be misspelled, via the {hunspell} package
 * provides a readability score via the {quanteda} package
 
-## Resources
+## Links
 
 * Wikipedia's page for [the alt attribute](https://en.wikipedia.org/wiki/Alt_attribute)
 * Royal National Institute of Blind People's (RNIB) [accessibility guidelines for alt text](https://www.rnib.org.uk/accessibility-guidelines-alt-text-what-you-need-know)

@@ -1,11 +1,12 @@
 Package: altcheckr
-Title: Assess Image Alt Text on Websites
+Title: Assess Image Alt Text on a Web Page
 Version: 0.0.0.9000
 Authors@R: person("Matt", "Dray", email = "mwdray@gmail.com", role = c("aut", "cre"))
-Description: Inspect a webpage for the presence of, and problems with, image alt text.
-    Alt text provides a description of image content for people who use assistive
-    technologies like screen readers. It's encoded in the 'alt' attribute of the 
-    'img' HTML element.
+Description: Scrape image element attributes from a webpage, detect alternative
+    (alt) text and assess it with simple heuristics. Alt text is important for users
+    of assistive technologies, like screen readers, for understanding the content
+    of images. This package should be used in conjunction with other accessibility
+    assessment tools for more comprehensive coverage.
 Depends: R (>= 3.5.0)
 License: CC0
 URL: https://github.com/matt-dray/altcheckr/, https://matt-dray.github.io/altcheckr/
@@ -26,4 +27,7 @@ Imports:
     xml2 (>= 1.2.2)
 Suggests:
     covr (>= 3.3.2),
-    testthat (>= 2.0.1)
+    testthat (>= 2.0.1),
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr

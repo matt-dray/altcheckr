@@ -4,15 +4,12 @@
 #' 
 #' @param attributes_df A data.frame/tibble with image attributes, produced by
 #'     \code{\link{alt_get}}.
-#' @param min_char A numeric value. If the number of characters in the alt
-#'     text is smaller than this then it's flagged as being short.
-#' @param max_char A numeric value. If the number of characters in the alt
-#'     text is larger than this then it's flagged as being long
-#' @param file_ext A character string. Regular expression of image file
-#'     extensions that might signify a file name has been used for the alt text.
-#' @param redundant_pattern A character string. Regular expression of phrases
-#'     to flag as being redundant in alt text ("A picture of" isn't necessary,
-#'     for example).
+#' @param min_char A numeric value. Alt text shorter than this is flagged.
+#' @param max_char A numeric value. Alt text longer than this is flagged.
+#' @param file_ext A character string. A regular expression of image file
+#'     extensions.
+#' @param redundant_pattern A character string. A regular expression of
+#'     'redundant' phrases in alt text.
 #' 
 #' @return A tibble object with classes \code{tbl_df}, \code{tbl} and
 #'     \code{data.frame}. In addition to columns provided by

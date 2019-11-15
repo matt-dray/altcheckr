@@ -81,6 +81,18 @@
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/introduction.html">Introduction to {altcheckr} functions</a>
+    </li>
+  </ul>
+</li>
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
@@ -128,24 +140,21 @@
     </tr>
     <tr>
       <th>max_char</th>
-      <td><p>A numeric value. If the number of characters in the alt
-text is larger than this then it's flagged as being long</p></td>
+      <td><p>A numeric value. Alt text longer than this is flagged.</p></td>
     </tr>
     <tr>
       <th>min_char</th>
-      <td><p>A numeric value. If the number of characters in the alt
-text is smaller than this then it's flagged as being short.</p></td>
+      <td><p>A numeric value. Alt text shorter than this is flagged.</p></td>
     </tr>
     <tr>
       <th>file_ext</th>
-      <td><p>A character string. Regular expression of image file
-extensions that might signify a file name has been used for the alt text.</p></td>
+      <td><p>A character string. A regular expression of image file
+extensions.</p></td>
     </tr>
     <tr>
       <th>redundant_pattern</th>
-      <td><p>A character string. Regular expression of phrases
-to flag as being redundant in alt text ("A picture of" isn't necessary,
-for example).</p></td>
+      <td><p>A character string. A regular expression of
+'redundant' phrases in alt text.</p></td>
     </tr>
     </table>
     

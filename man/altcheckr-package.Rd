@@ -4,12 +4,13 @@
 \name{altcheckr-package}
 \alias{altcheckr}
 \alias{altcheckr-package}
-\title{altcheckr: Assess Image Alt Text on Websites}
+\title{altcheckr: Assess Image Alt Text on a Web Page}
 \description{
-Inspect a webpage for the presence of, and problems with, image alt text.
-    Alt text provides a description of image content for people who use assistive
-    technologies like screen readers. It's encoded in the 'alt' attribute of the 
-    'img' HTML element.
+Scrape image element attributes from a webpage, detect alternative
+    (alt) text and assess it with simple heuristics. Alt text is important for users
+    of assistive technologies, like screen readers, for understanding the content
+    of images. This package should be used in conjunction with other accessibility
+    assessment tools for more comprehensive coverage.
 }
 \seealso{
 Useful links:

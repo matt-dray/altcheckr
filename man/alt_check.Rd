@@ -12,18 +12,15 @@ alt_check(attributes_df, max_char = 125, min_char = 20,
 \item{attributes_df}{A data.frame/tibble with image attributes, produced by
 \code{\link{alt_get}}.}
 
-\item{max_char}{A numeric value. If the number of characters in the alt
-text is larger than this then it's flagged as being long}
+\item{max_char}{A numeric value. Alt text longer than this is flagged.}
 
-\item{min_char}{A numeric value. If the number of characters in the alt
-text is smaller than this then it's flagged as being short.}
+\item{min_char}{A numeric value. Alt text shorter than this is flagged.}
 
-\item{file_ext}{A character string. Regular expression of image file
-extensions that might signify a file name has been used for the alt text.}
+\item{file_ext}{A character string. A regular expression of image file
+extensions.}
 
-\item{redundant_pattern}{A character string. Regular expression of phrases
-to flag as being redundant in alt text ("A picture of" isn't necessary,
-for example).}
+\item{redundant_pattern}{A character string. A regular expression of
+'redundant' phrases in alt text.}
 }
 \value{
 A tibble object with classes \code{tbl_df}, \code{tbl} and

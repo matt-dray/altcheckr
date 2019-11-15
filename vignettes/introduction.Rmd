@@ -1,0 +1,83 @@
+---
+title: "Introduction to {altcheckr} functions"
+author: "Matt Dray"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
+
+library(altcheckr)
+```
+
+# Install
+
+You can install {altcheckr} from GitHub using the {remotes} package.
+
+```{r install, eval=FALSE}
+install.packages(remotes)
+install_github("matt-dray/altcheckr")
+library(altcheckr)
+```
+
+# Get image elements
+
+Use the `alt_get()` function to scrape the attributes of each <img> element
+on a web page that you name in the `url` argument,
+
+The function uses {xml2} and {rvest} to scrape a given web page and extract
+image attributes, with a little bit of {purrr} to get it into a data frame.
+
+```{r get}
+webpage <- "https://alphagov.github.io/accessibility-tool-audit/test-cases.html#images"
+get_img <- alt_get(url = webpage)
+```
+
+The function returns a tibble where each row is an image element from that page
+and columns are the the image source (`src`), alt text (`alt`) and link to a
+file with a longer description (`longdesc`), if it exists (sometimes used for
+complex images). The `alt` column will be created and filled with `NA` if it
+isn't present.
+
+Setting the argument `all_attributes` to `TRUE` will return all the attributes
+provided in the <img> element, not just `src`, `alt` and `longdesc`.
+
+Here is a preview of the tibble that is output from `alt_get()`:
+
+```{r get-print}
+print(get_img)
+```
+
+# Check alt text
+
+You should pass the output of `alt_get()` to `alt_check()` to perform a series of
+basic assessments for the presence and 'quality' of each image's alt text.
+
+You can also pass any data frame that contains a `src` and `alt` column, where
+`alt` contains the text to be assessed by `alt_check()`.
+
+```{r check}
+check_img <- alt_check(get_img)
+```
+
+This will return the same tibble as `alt_get()`, but new columns have now been
+appended.
+
+Each new column is the outcome of a check for an possible accessibility issue
+with the alt text. For example, whether the alt text actually exists and whether
+it is long.
+
+```{r check-print}
+print(check_img)
+```
+
+And here is the structure now:
+
+```{r check-str}
+str(check_img)
+```
