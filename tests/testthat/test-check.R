@@ -25,7 +25,3 @@ test_that("there's an error with non-numeric input to min/max_char", {
   expect_error(altcheckr::alt_check(attribute_df = test_attributes_df, min_char = test_mat))
   expect_error(altcheckr::alt_check(attribute_df = test_attributes_df, min_char = test_list))
 })
-
-test_that("structure of output data.frame is as expected", {
-  expect_equal(class(altcheckr::alt_check(test_attributes_df)), out_get_class)
-})

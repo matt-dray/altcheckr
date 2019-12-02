@@ -30,4 +30,4 @@ Suggests:
     knitr (>= 1.26.0),
     testthat (>= 2.0.1),
     rmarkdown (>= 1.18.0)
-VignetteBuilder: knitr (>= 1.26.0)
+VignetteBuilder: knitr

@@ -116,9 +116,9 @@ alt_check <- function(
     basic_words = ifelse(
       .data$alt_exists == "Exists",
       purrr::map(
-        tokens,
+        .data$tokens,
         stringr::str_extract_all,
-        pattern = paste0("^", paste(tolower(altcheckr::cko_basic_words), collapse = "$|^"), "$")
+        pattern = paste0("^", paste(tolower(cko_basic_words), collapse = "$|^"), "$")
       ),
       NA_character_
     ),
@@ -126,7 +126,7 @@ alt_check <- function(
     # Unlist the basic terms
     basic_words = ifelse(
       .data$alt_exists == "Exists",
-      purrr::map(basic_words, unlist),
+      purrr::map(.data$basic_words, unlist),
       NA_character_
     ),
     
@@ -139,9 +139,9 @@ alt_check <- function(
     
   ) %>% 
     dplyr::as_tibble() %>%  # ensure tibble output
-    dplyr::select(-tokens)
+    dplyr::select(-.data$tokens)
     
     # Return
-    return(alt_df)
+    return(.data$alt_df)
   
 }
