@@ -8,7 +8,7 @@ Description: Scrape image element attributes from a webpage, detect alternative
     of images. This package should be used in conjunction with other accessibility
     assessment tools for more comprehensive coverage.
 Depends: R (>= 3.5.0)
-License: CC0
+License: MIT + file LICENSE
 URL: https://github.com/matt-dray/altcheckr/, https://matt-dray.github.io/altcheckr/
 BugReports: https://github.com/matt-dray/altcheckr/issues
 Encoding: UTF-8
@@ -27,7 +27,7 @@ Imports:
     xml2 (>= 1.2.2)
 Suggests:
     covr (>= 3.3.2),
+    knitr (>= 1.26.0),
     testthat (>= 2.0.1),
-    knitr,
-    rmarkdown
-VignetteBuilder: knitr
+    rmarkdown (>= 1.18.0)
+VignetteBuilder: knitr (>= 1.26.0)
