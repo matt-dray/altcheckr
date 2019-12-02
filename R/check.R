@@ -99,18 +99,34 @@ alt_check <- function(
     ),
     
     # Highlight possible incorrect spellings
-    spellcheck = paste(hunspell::hunspell(.data$alt)),
     spellcheck = ifelse(
-      .data$spellcheck == "character(0)" | .data$spellcheck == "NULL",
-      NA_character_,
-      paste(.data$spellcheck)
+      .data$alt_exists == "Exists",
+      hunspell::hunspell(.data$alt),
+      NA_character_
     ),
-    spellcheck = stringr::str_replace_all(.data$spellcheck, "c\\(|\\\"|\\)", ""),
     
-    # Basic English
+    # tokens
+    tokens = ifelse(
+      .data$alt_exists == "Exists",
+      stringr::str_split(tolower(.data$alt), stringr::boundary("word")),
+      NA_character_
+    ),
+    
+    # Isolate basic English
     basic_words = ifelse(
       .data$alt_exists == "Exists",
-      stringr::str_extract_all(tolower(.data$alt), "the|and"),
+      purrr::map(
+        tokens,
+        stringr::str_extract_all,
+        pattern = paste0("^", paste(tolower(altcheckr::cko_basic_words), collapse = "$|^"), "$")
+      ),
+      NA_character_
+    ),
+    
+    # Unlist the basic terms
+    basic_words = ifelse(
+      .data$alt_exists == "Exists",
+      purrr::map(basic_words, unlist),
       NA_character_
     ),
     
@@ -119,10 +135,11 @@ alt_check <- function(
       .data$alt_exists == "Exists",
       quanteda::textstat_readability(.data$alt)$Flesch,
       NA_real_
-    ),
+    )
     
   ) %>% 
-    dplyr::as_tibble()  # ensure tibble output
+    dplyr::as_tibble() %>%  # ensure tibble output
+    dplyr::select(-tokens)
     
     # Return
     return(alt_df)
