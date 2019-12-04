@@ -4,13 +4,9 @@
 \alias{alt_check}
 \title{Check for Problems with the Alt Text for Images on a Web Page}
 \usage{
-alt_check(
-  attributes_df,
-  max_char = 125,
-  min_char = 20,
+alt_check(attributes_df, max_char = 125, min_char = 20,
   file_ext = ".jpg$|.jpeg$|.png$|.svg$|.gif$",
-  redundant_pattern = "image|picture|photo|graph|plot|diagram"
-)
+  redundant_pattern = "image|picture|photo|graph|plot|diagram")
 }
 \arguments{
 \item{attributes_df}{A data.frame/tibble with image attributes, produced by

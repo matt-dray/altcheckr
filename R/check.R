@@ -142,6 +142,6 @@ alt_check <- function(
     dplyr::select(-.data$tokens)
     
     # Return
-    return(.data$alt_df)
+    return(alt_df)
   
 }
