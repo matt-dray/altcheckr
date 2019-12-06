@@ -28,8 +28,6 @@
 #'             could be misread by a screenreader.
 #'         \item \code{basic_words} Character list column. Words that match to
 #'             the 850 words of Charles Kay Ogden's Basic English.
-#'         \item \code{readability} Flesch's Reading Ease Score (Flesch 1948),
-#'             provided via the {hunspell} package.
 #'      }
 #' 
 #' @importFrom rlang .data
@@ -128,13 +126,6 @@ alt_check <- function(
       .data$alt_exists == "Exists",
       purrr::map(.data$basic_words, unlist),
       NA_character_
-    ),
-    
-    # Give readability score
-    readability = ifelse(
-      .data$alt_exists == "Exists",
-      quanteda::textstat_readability(.data$alt)$Flesch,
-      NA_real_
     )
     
   ) %>% 

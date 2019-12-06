@@ -19,7 +19,6 @@ Imports:
     hunspell (>= 3.0),
     magrittr (>= 1.5),
     purrr (>= 0.3.3),
-    quanteda (>= 1.5.1),
     rlang (>= 0.4.1),
     rvest (>= 0.3.4),
     stringr (>= 1.4.0),
