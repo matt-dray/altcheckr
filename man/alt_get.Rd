@@ -4,13 +4,14 @@
 \alias{alt_get}
 \title{Get HTML Attributes from the Image Elements of a Web Page}
 \usage{
-alt_get(url, all_attributes = FALSE)
+alt_get(webpage, all_attributes = FALSE)
 }
 \arguments{
-\item{url}{A character string describing the URL of a webpage.}
+\item{webpage}{A character string describing the URL of a webpage.}
 
 \item{all_attributes}{Logical. Do you want to return \emph{all} the image
-attributes as columns or just \code{src}, \code{alt} and \code{longdesc}?}
+attributes as columns or just \code{src}, \code{alt} and \code{longdesc}
+(if it exists)?}
 }
 \value{
 A tibble object with classes \code{tbl_df}, \code{tbl} and
@@ -24,12 +25,12 @@ A tibble object with classes \code{tbl_df}, \code{tbl} and
     }
 }
 \description{
-Scrape a web page's HTML and extract the attributes from each
-    image element (\code{<img>}) on that page.
+Scrape (politely) a web page's HTML and extract the attributes
+    from each image element (\code{<img>}) on that page.
 }
 \examples{
 \dontrun{
-    test_url <- "https://alphagov.github.io/accessibility-tool-audit/test-cases.html#images"
-    alt_get(url = test_url)
+    test_url <- "https://www.bbc.co.uk/news"
+    alt_get(webpage = test_url)
     }
 }

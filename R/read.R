@@ -1,11 +1,12 @@
 #' Get HTML Attributes from the Image Elements of a Web Page
 #'
-#' @description Scrape a web page's HTML and extract the attributes from each
-#'     image element (\code{<img>}) on that page.
+#' @description Scrape (politely) a web page's HTML and extract the attributes
+#'     from each image element (\code{<img>}) on that page.
 #' 
-#' @param url A character string describing the URL of a webpage.
+#' @param webpage A character string describing the URL of a webpage.
 #' @param all_attributes Logical. Do you want to return \emph{all} the image
-#'     attributes as columns or just \code{src}, \code{alt} and \code{longdesc}?
+#'     attributes as columns or just \code{src}, \code{alt} and \code{longdesc}
+#'     (if it exists)?
 #' 
 #' @return A tibble object with classes \code{tbl_df}, \code{tbl} and
 #'     \code{data.frame}. One row per image element and one column per attribute,
@@ -20,21 +21,30 @@
 #' @export
 #' 
 #' @examples \dontrun{
-#'     test_url <- "https://alphagov.github.io/accessibility-tool-audit/test-cases.html#images"
-#'     alt_get(url = test_url)
+#'     test_url <- "https://www.bbc.co.uk/news"
+#'     alt_get(webpage = test_url)
 #'     }
 
-alt_get <- function(url, all_attributes = FALSE) {
+alt_get <- function(webpage, all_attributes = FALSE) {
   
   # Stop for argument input problems 
-  if (!is.character(url)) {
-    stop("Input to the url argument must be a character string.")
+  if (!is.character(webpage)) {
+    stop("Input to the 'webpage' argument must be a character string.")
   } else if (!is.logical(all_attributes)) {
-    stop("Input to the all_attributes argument must be logical (TRUE or FALSE).")
+    stop("Input to the 'all_attributes' argument must be logical (TRUE or FALSE).")
   }
   
-  # Read the full HTML from the URL provided
-  page_html <- xml2::read_html(url)
+  # Begin {polite} session
+  session <- suppressWarnings(polite::bow(webpage, force = TRUE))
+  
+  # Scrape page if allowed
+  page_html <- polite::scrape(session)
+  
+  # Stop if NULL is received from session
+  # Additional warnings output by {polite} if scraping isn't allowed
+  if (is.null(page_html)) {
+    stop("Cannot fetch content. NULL was returned from the scrape.")
+  }
   
   # Extract attributes from the img HTML elements only
   img_df <- page_html %>% 
