@@ -34,7 +34,7 @@ The function uses {xml2} and {rvest} to scrape a given web page and extract
 image attributes, with a little bit of {purrr} to get it into a data frame.
 
 ```{r get}
-webpage <- "https://alphagov.github.io/accessibility-tool-audit/test-cases.html#images"
+webpage <- "https://www.bbc.co.uk/news"
 get_img <- alt_get(url = webpage)
 ```
 
@@ -55,11 +55,12 @@ print(get_img)
 
 # Check alt text
 
-You should pass the output of `alt_get()` to `alt_check()` to perform a series of
-basic assessments for the presence and 'quality' of each image's alt text.
+You can then pass the output of `alt_get()` to `alt_check()` to perform a series of
+basic assessments of each image's alt text.
 
-You can also pass any data frame that contains a `src` and `alt` column, where
-`alt` contains the text to be assessed by `alt_check()`.
+(You can also pass any data frame that contains a `src` and `alt` column, where
+`alt` contains the text to be assessed by `alt_check()`. For example,
+{altcheckr} has a built-in dataset: `example_get`.)
 
 ```{r check}
 check_img <- alt_check(get_img)
@@ -68,7 +69,7 @@ check_img <- alt_check(get_img)
 This will return the same tibble as `alt_get()`, but new columns have now been
 appended.
 
-Each new column is the outcome of a check for an possible accessibility issue
+Each new column is the outcome of a check for a possible accessibility issue
 with the alt text. For example, whether the alt text actually exists and whether
 it is long.
 

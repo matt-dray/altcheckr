@@ -78,7 +78,7 @@ cko_basic_words <- c(
   # I
   "I", "ice", "idea", "if", "ill", "important", "impulse", "in", "increase",
   "industry", "ink", "insect", "instrument", "insurance", "interest",
-  "invention", "iron", "island",
+  "invention", "iron", "is", "island",
   
   # J
   "jelly", "jewel", "join", "journey", "judge", "jump",
@@ -177,3 +177,4 @@ cko_basic_words <- c(
 )
 
 usethis::use_data("cko_basic_words")
+# usethis::use_data(cko_basic_words, cko_basic_words, internal = TRUE, overwrite = TRUE)

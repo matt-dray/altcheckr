@@ -4,9 +4,13 @@
 \alias{alt_check}
 \title{Check for Problems with the Alt Text for Images on a Web Page}
 \usage{
-alt_check(attributes_df, max_char = 125, min_char = 20,
+alt_check(
+  attributes_df,
+  max_char = 125,
+  min_char = 20,
   file_ext = ".jpg$|.jpeg$|.png$|.svg$|.gif$",
-  redundant_pattern = "image|picture|photo|graph|plot|diagram")
+  redundant_pattern = "image|picture|photo|graph|plot|diagram"
+)
 }
 \arguments{
 \item{attributes_df}{A data.frame/tibble with image attributes, produced by
@@ -28,20 +32,20 @@ A tibble object with classes \code{tbl_df}, \code{tbl} and
     \code{\link{alt_get}}, also returns:
     \itemize{
         \item \code{alt_exists} "Exists", "Missing" or intentionally "Empty".
-        \item \code{char_length} "Short", "Long" or "OK", depending on inputs
+        \item \code{nchar_count} Integer. Number of characters.
+        \item \code{nchar_assess} "Short", "Long" or "OK", depending on inputs
             to \code{min_char} and \code{max_char}.
         \item \code{file_ext} Logical. Does it look like the alt text might
             just be a filename (e.g. ends with ".jpg")?
         \item \code{self_evident} Logical. Is a redundant phrase used in the
             alt text (e.g. "a picture of")?
-        \item \code{terminal_period} Logical. Does the alt text end with a 
-            period to allow better parsing by screen readers?
-        \item \code{spellcheck} Character. Words to check for spelling. These
-            could be misread by a screenreader.
-        \item \code{basic_words} Character list column. Words that match to
+        \item \code{terminal_punct} Logical. Does the alt text end with
+            terminal punctuation, like a period, to allow a screen reader to
+            parse it as a sentence?
+        \item \code{spellcheck} Character. Words to check for misspelling.
+            These could be misread by a screenreader.
+        \item \code{not_basic} Character list column. Words that match to
             the 850 words of Charles Kay Ogden's Basic English.
-        \item \code{readability} Flesch's Reading Ease Score (Flesch 1948),
-            provided via the {hunspell} package.
      }
 }
 \description{

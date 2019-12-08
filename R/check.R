@@ -16,17 +16,19 @@
 #'     \code{\link{alt_get}}, also returns:
 #'     \itemize{
 #'         \item \code{alt_exists} "Exists", "Missing" or intentionally "Empty".
-#'         \item \code{char_length} "Short", "Long" or "OK", depending on inputs
+#'         \item \code{nchar_count} Integer. Number of characters.
+#'         \item \code{nchar_assess} "Short", "Long" or "OK", depending on inputs
 #'             to \code{min_char} and \code{max_char}.
 #'         \item \code{file_ext} Logical. Does it look like the alt text might
 #'             just be a filename (e.g. ends with ".jpg")?
 #'         \item \code{self_evident} Logical. Is a redundant phrase used in the
 #'             alt text (e.g. "a picture of")?
-#'         \item \code{terminal_period} Logical. Does the alt text end with a 
-#'             period to allow better parsing by screen readers?
-#'         \item \code{spellcheck} Character. Words to check for spelling. These
-#'             could be misread by a screenreader.
-#'         \item \code{basic_words} Character list column. Words that match to
+#'         \item \code{terminal_punct} Logical. Does the alt text end with
+#'             terminal punctuation, like a period, to allow a screen reader to
+#'             parse it as a sentence?
+#'         \item \code{spellcheck} Character. Words to check for misspelling.
+#'             These could be misread by a screenreader.
+#'         \item \code{not_basic} Character list column. Words that match to
 #'             the 850 words of Charles Kay Ogden's Basic English.
 #'      }
 #' 
@@ -67,8 +69,15 @@ alt_check <- function(
       TRUE ~ "Exists"
     ),
     
-    # Check for short and long alt text
-    char_length = dplyr::case_when(
+    # Count characters in alt text
+    nchar_count = ifelse(
+      .data$alt_exists == "Exists",
+      nchar(.data$alt),
+      NA_integer_
+    ),
+    
+    # Assess length on scale
+    nchar_assess = dplyr::case_when(
       .data$alt_exists %in% c("Missing", "Empty") ~ NA_character_,
       nchar(.data$alt) < min_char ~ "Short",
       nchar(.data$alt) > max_char ~ "Long",
@@ -90,48 +99,37 @@ alt_check <- function(
     ),
     
     # Check for terminal punctuation
-    terminal_period = dplyr::case_when(
+    terminal_punct = dplyr::case_when(
       .data$alt_exists %in% c("Missing", "Empty") | is.na(.data$alt_exists) ~ NA,
-      stringr::str_detect(.data$alt, "\\.$") ~ TRUE,
+      stringr::str_detect(.data$alt, "\\.$|\\!$|\\?$") ~ TRUE,
       TRUE ~ FALSE
     ),
     
     # Highlight possible incorrect spellings
-    spellcheck = ifelse(
-      .data$alt_exists == "Exists",
-      hunspell::hunspell(.data$alt),
-      NA_character_
-    ),
+    spellcheck = hunspell::hunspell(.data$alt),
     
     # tokens
-    tokens = ifelse(
-      .data$alt_exists == "Exists",
-      stringr::str_split(tolower(.data$alt), stringr::boundary("word")),
-      NA_character_
+    alt_tokens = stringr::str_split(tolower(.data$alt), stringr::boundary("word")),
+    
+    # detect
+    detect_basic = purrr::map(
+      .data$alt_tokens,
+      stringr::str_detect,
+      #stringr::str_c(cko_basic_words, collapse = "|")
+      paste0(paste0("^", paste(tolower(cko_basic_words), collapse = "$|^"), "$"))
     ),
     
-    # Isolate basic English
-    basic_words = ifelse(
-      .data$alt_exists == "Exists",
-      purrr::map(
-        .data$tokens,
-        stringr::str_extract_all,
-        pattern = paste0("^", paste(tolower(cko_basic_words), collapse = "$|^"), "$")
-      ),
-      NA_character_
-    ),
-    
-    # Unlist the basic terms
-    basic_words = ifelse(
-      .data$alt_exists == "Exists",
-      purrr::map(.data$basic_words, unlist),
-      NA_character_
+    # match
+    not_basic = purrr::map2(
+      .x = .data$alt_tokens,
+      .y = .data$detect_basic,
+      .f = ~.x[.y == FALSE]
     )
     
   ) %>% 
-    dplyr::as_tibble() %>%  # ensure tibble output
-    dplyr::select(-.data$tokens)
-    
+    tibble::as_tibble() %>%   # ensure tibble output
+    dplyr::select(-.data$alt_tokens, -.data$detect_basic)
+  
     # Return
     return(alt_df)
   
