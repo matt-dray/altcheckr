@@ -34,8 +34,8 @@ The function uses {xml2} and {rvest} to scrape a given web page and extract
 image attributes, with a little bit of {purrr} to get it into a data frame.
 
 ```{r get}
-webpage <- "https://www.bbc.co.uk/news"
-get_img <- alt_get(url = webpage)
+site_url <- "https://www.bbc.co.uk/news"
+get_img <- alt_get(webpage = site_url)
 ```
 
 The function returns a tibble where each row is an image element from that page

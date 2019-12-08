@@ -31,6 +31,6 @@ test_attributes_df <- dplyr::tibble(
 out_get_class <- c("tbl_df", "tbl", "data.frame")
 out_get_names <- c("src", "alt")
 out_check_names <- c(
-  "src", "alt", "alt_exists", "char_length", "self_evident", "file_ext",
-  "terminal_period", "spellcheck", "basic_words", "readability"
+  "src", "alt", "alt_exists", "nchar_count", "nchar_assess", "file_ext",
+  "self_evident", "terminal_punct", "spellcheck", "not_basic"
 )
