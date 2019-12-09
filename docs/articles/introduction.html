@@ -121,7 +121,7 @@
 <a class="sourceLine" id="cb3-3" data-line-number="3"><span class="co">#&gt;    src                                    alt                                   </span></a>
 <a class="sourceLine" id="cb3-4" data-line-number="4"><span class="co">#&gt;    &lt;chr&gt;                                  &lt;chr&gt;                                 </span></a>
 <a class="sourceLine" id="cb3-5" data-line-number="5"><span class="co">#&gt;  1 https://a1.api.bbc.co.uk/hit.xiti?&amp;co… ""                                    </span></a>
-<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="co">#&gt;  2 https://ichef.bbci.co.uk/news/320/cps… Emma Barnett on Question Time         </span></a>
+<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="co">#&gt;  2 https://ichef.bbci.co.uk/news/320/cps… Question Time                         </span></a>
 <a class="sourceLine" id="cb3-7" data-line-number="7"><span class="co">#&gt;  3 data:image/gif;base64,R0lGODlhAQABAIA… Jack                                  </span></a>
 <a class="sourceLine" id="cb3-8" data-line-number="8"><span class="co">#&gt;  4 data:image/gif;base64,R0lGODlhAQABAIA… Tourist take pictures of the White Is…</span></a>
 <a class="sourceLine" id="cb3-9" data-line-number="9"><span class="co">#&gt;  5 data:image/gif;base64,R0lGODlhAQABAIA… Joseph McCann                         </span></a>
@@ -145,7 +145,7 @@
 <a class="sourceLine" id="cb5-3" data-line-number="3"><span class="co">#&gt;    src   alt   alt_exists nchar_count nchar_assess file_ext self_evident</span></a>
 <a class="sourceLine" id="cb5-4" data-line-number="4"><span class="co">#&gt;    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;            &lt;int&gt; &lt;chr&gt;        &lt;lgl&gt;    &lt;lgl&gt;       </span></a>
 <a class="sourceLine" id="cb5-5" data-line-number="5"><span class="co">#&gt;  1 http… ""    Empty               NA &lt;NA&gt;         NA       NA          </span></a>
-<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="co">#&gt;  2 http… Emma… Exists              29 OK           FALSE    FALSE       </span></a>
+<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="co">#&gt;  2 http… Ques… Exists              13 Short        FALSE    FALSE       </span></a>
 <a class="sourceLine" id="cb5-7" data-line-number="7"><span class="co">#&gt;  3 data… Jack  Exists               4 Short        FALSE    FALSE       </span></a>
 <a class="sourceLine" id="cb5-8" data-line-number="8"><span class="co">#&gt;  4 data… Tour… Exists              50 OK           FALSE    TRUE        </span></a>
 <a class="sourceLine" id="cb5-9" data-line-number="9"><span class="co">#&gt;  5 data… Jose… Exists              13 Short        FALSE    FALSE       </span></a>
@@ -161,15 +161,15 @@
 <a class="sourceLine" id="cb6-2" data-line-number="2"><span class="co">#&gt; Observations: 109</span></a>
 <a class="sourceLine" id="cb6-3" data-line-number="3"><span class="co">#&gt; Variables: 10</span></a>
 <a class="sourceLine" id="cb6-4" data-line-number="4"><span class="co">#&gt; $ src            &lt;chr&gt; "https://a1.api.bbc.co.uk/hit.xiti?&amp;col=1&amp;from=p&amp;ptag=…</span></a>
-<a class="sourceLine" id="cb6-5" data-line-number="5"><span class="co">#&gt; $ alt            &lt;chr&gt; "", "Emma Barnett on Question Time", "Jack", "Tourist …</span></a>
+<a class="sourceLine" id="cb6-5" data-line-number="5"><span class="co">#&gt; $ alt            &lt;chr&gt; "", "Question Time", "Jack", "Tourist take pictures of…</span></a>
 <a class="sourceLine" id="cb6-6" data-line-number="6"><span class="co">#&gt; $ alt_exists     &lt;chr&gt; "Empty", "Exists", "Exists", "Exists", "Exists", "Exis…</span></a>
-<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="co">#&gt; $ nchar_count    &lt;int&gt; NA, 29, 4, 50, 13, 49, 19, 31, 31, 90, 42, 26, 24, 14,…</span></a>
-<a class="sourceLine" id="cb6-8" data-line-number="8"><span class="co">#&gt; $ nchar_assess   &lt;chr&gt; NA, "OK", "Short", "OK", "Short", "OK", "Short", "OK",…</span></a>
+<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="co">#&gt; $ nchar_count    &lt;int&gt; NA, 13, 4, 50, 13, 49, 19, 31, 31, 90, 34, 26, 24, 18,…</span></a>
+<a class="sourceLine" id="cb6-8" data-line-number="8"><span class="co">#&gt; $ nchar_assess   &lt;chr&gt; NA, "Short", "Short", "OK", "Short", "OK", "Short", "O…</span></a>
 <a class="sourceLine" id="cb6-9" data-line-number="9"><span class="co">#&gt; $ file_ext       &lt;lgl&gt; NA, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, F…</span></a>
 <a class="sourceLine" id="cb6-10" data-line-number="10"><span class="co">#&gt; $ self_evident   &lt;lgl&gt; NA, FALSE, FALSE, TRUE, FALSE, FALSE, FALSE, FALSE, FA…</span></a>
 <a class="sourceLine" id="cb6-11" data-line-number="11"><span class="co">#&gt; $ terminal_punct &lt;lgl&gt; NA, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, F…</span></a>
 <a class="sourceLine" id="cb6-12" data-line-number="12"><span class="co">#&gt; $ spellcheck     &lt;list&gt; [&lt;&gt;, &lt;&gt;, &lt;&gt;, &lt;&gt;, "McCann", &lt;&gt;, &lt;"Shante", "Turay"&gt;, &lt;…</span></a>
-<a class="sourceLine" id="cb6-13" data-line-number="13"><span class="co">#&gt; $ not_basic      &lt;list&gt; [&lt;&gt;, &lt;"emma", "barnett"&gt;, "jack", &lt;"tourist", "pictur…</span></a></code></pre></div>
+<a class="sourceLine" id="cb6-13" data-line-number="13"><span class="co">#&gt; $ not_basic      &lt;list&gt; [&lt;&gt;, &lt;&gt;, "jack", &lt;"tourist", "pictures", "eruption"&gt;,…</span></a></code></pre></div>
 </div>
   </div>
 

@@ -5,14 +5,14 @@ An in-development R package to assess the alternative (alt) text from a web page
 <!-- badges: start -->
 [![Travis build status](https://travis-ci.org/matt-dray/altcheckr.svg?branch=master)](https://travis-ci.org/matt-dray/altcheckr)
 [![Coverage status](https://codecov.io/gh/matt-dray/altcheckr/branch/master/graph/badge.svg)](https://codecov.io/github/matt-dray/altcheckr?branch=master)
-[![Blog post](https://img.shields.io/badge/rostrum.blog-post-008900?labelColor=000000&logo=data%3Aimage%2Fpng%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAARoAAAFKCAMAAAD142B%2FAAAABlBMVEUAAAAVggSxUuaEAAAAAXRSTlMAQObYZgAAAdRJREFUeAHt3cEJAzEMRNG4%2F6Zz13XAjNbvF7CYB9FByTo%2FPZEkSWfmZGjQoEGDBg0aNGjQ3A0NGjRo0KBBI6n%2Fc26qoEGDBg0aNGjQoEGDBg0aNGjQoJFkY2ysoEGDBg0aNGjQoEGDBg0aNGjQoJG0dyYETziz%2FAn5edGgQYMGDRo0aNCgQYMGDRo0aNCU0TQn2Rj3z5ozQ4MGDRo0aNCgQYMGDZp%2BGjRo0KBBI6l%2FN7z%2FG6d2mjNDgwYNGjRo0KBBgwYNGjRo0KBBczvrbSmfCfvPgAYNGjRo0KBBgwYNGjRo0OShQYNGkj3y%2FvmBBg0aNGjQoEGDBg0aNGjQoEGDRtKLNwvvfwIaNGjQoEGDBg0aNGjQoEGDBg2afhpJ%2FovOte9o0KBBgwYNGjRo0KBBgwYNGjRoJPnlMRo0aNCgQYMGDRo0aNCgQYMGDRo0eZK%2B%2FY4CGjRo0KBBgwYNGjRo0KBBgwYNmn4aSe6U8PoGGjRo0KBBgwYNGjRo0KBBgwYNGkl2w8YwGjRo0KBBgwYNGjRo0KBBgwYNGkk3p0r%2FrMnPiwYNGjRo0KBBgwYNGjRo0KBBg6aORpKdMxo0aNCgQYMGDRo0aNCgQYMGDRo0kiQV9AcMrlXNDEGqUAAAAABJRU5ErkJggg%3D%3D)](https://www.rostrum.blog/2019/12/08/altcheckr/)
+[![Blog post](https://img.shields.io/badge/rostrum.blog-post-008900?labelColor=000000&logo=data%3Aimage%2Fgif%3Bbase64%2CR0lGODlhEAAQAPEAAAAAABWCBAAAAAAAACH5BAlkAAIAIf8LTkVUU0NBUEUyLjADAQAAACwAAAAAEAAQAAAC55QkISIiEoQQQgghRBBCiCAIgiAIgiAIQiAIgSAIgiAIQiAIgRAEQiAQBAQCgUAQEAQEgYAgIAgIBAKBQBAQCAKBQEAgCAgEAoFAIAgEBAKBIBAQCAQCgUAgEAgCgUBAICAgICAgIBAgEBAgEBAgEBAgECAgICAgECAQIBAQIBAgECAgICAgICAgECAQECAQICAgICAgICAgEBAgEBAgEBAgICAgICAgECAQIBAQIBAgECAgICAgIBAgECAQECAQIBAgICAgIBAgIBAgEBAgECAgECAgICAgICAgECAgECAgQIAAAQIKAAAh%2BQQJZAACACwAAAAAEAAQAAAC55QkIiESIoQQQgghhAhCBCEIgiAIgiAIQiAIgSAIgiAIQiAIgRAEQiAQBAQCgUAQEAQEgYAgIAgIBAKBQBAQCAKBQEAgCAgEAoFAIAgEBAKBIBAQCAQCgUAgEAgCgUBAICAgICAgIBAgEBAgEBAgEBAgECAgICAgECAQIBAQIBAgECAgICAgICAgECAQECAQICAgICAgICAgEBAgEBAgEBAgICAgICAgECAQIBAQIBAgECAgICAgIBAgECAQECAQIBAgICAgIBAgIBAgEBAgECAgECAgICAgICAgECAgECAgQIAAAQIKAAA7)](https://www.rostrum.blog/2019/12/08/altcheckr/)
 <!-- badges: end -->
 
 ## Description
 
 Scrape image element attributes from a webpage, detect alternative (alt) text and assess it with simple heuristics. Alt text is important for users of assistive technologies, like screen readers, for understanding the content of images. This package should be used in conjunction with other accessibility assessment tools for more comprehensive coverage.
 
-[Read more about this package in the accompanying blog post.]()
+[Read more about this package in the accompanying blog post.](https://www.rostrum.blog/2019/12/08/altcheckr/)
 
 ## Use
 
