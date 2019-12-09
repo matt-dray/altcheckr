@@ -1,1 +1,5 @@
 destination: docs
+url: https://matt-dray.github.io/altcheckr/
+template:
+  params:
+    bootswatch: cosmo

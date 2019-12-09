@@ -6,6 +6,8 @@
 \alias{altcheckr-package}
 \title{altcheckr: Assess Image Alt Text on a Web Page}
 \description{
+\if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
+
 Scrape image element attributes from a webpage, detect alternative
     (alt) text and assess it with simple heuristics. Alt text is important for users
     of assistive technologies, like screen readers, for understanding the content
