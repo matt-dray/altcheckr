@@ -89,7 +89,7 @@
       <h1>Introduction to {altcheckr} functions</h1>
                         <h4 class="author">Matt Dray</h4>
             
-            <h4 class="date">2019-12-09</h4>
+            <h4 class="date">2019-12-10</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/matt-dray/altcheckr/blob/master/vignettes/introduction.Rmd"><code>vignettes/introduction.Rmd</code></a></small>
       <div class="hidden name"><code>introduction.Rmd</code></div>
@@ -118,18 +118,18 @@
 <p>Here is a preview of the tibble that is output from <code><a href="https://matt-dray.github.io/altcheckr//reference/alt_get.html">alt_get()</a></code>:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/print.html">print</a></span>(get_img)</a>
 <a class="sourceLine" id="cb3-2" data-line-number="2"><span class="co">#&gt; # A tibble: 109 x 2</span></a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="co">#&gt;    src                                    alt                                   </span></a>
-<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="co">#&gt;    &lt;chr&gt;                                  &lt;chr&gt;                                 </span></a>
-<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="co">#&gt;  1 https://a1.api.bbc.co.uk/hit.xiti?&amp;co… ""                                    </span></a>
-<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="co">#&gt;  2 https://ichef.bbci.co.uk/news/320/cps… Question Time                         </span></a>
-<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="co">#&gt;  3 data:image/gif;base64,R0lGODlhAQABAIA… Jack                                  </span></a>
-<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="co">#&gt;  4 data:image/gif;base64,R0lGODlhAQABAIA… Tourist take pictures of the White Is…</span></a>
-<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="co">#&gt;  5 data:image/gif;base64,R0lGODlhAQABAIA… Joseph McCann                         </span></a>
-<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="co">#&gt;  6 https://ichef.bbci.co.uk/news/320/cps… Undecided voters and election issues …</span></a>
-<a class="sourceLine" id="cb3-11" data-line-number="11"><span class="co">#&gt;  7 data:image/gif;base64,R0lGODlhAQABAIA… Shante Turay-Thomas                   </span></a>
-<a class="sourceLine" id="cb3-12" data-line-number="12"><span class="co">#&gt;  8 data:image/gif;base64,R0lGODlhAQABAIA… Anton and Emma in Strictly 2019       </span></a>
-<a class="sourceLine" id="cb3-13" data-line-number="13"><span class="co">#&gt;  9 data:image/gif;base64,R0lGODlhAQABAIA… Anton and Emma in Strictly 2019       </span></a>
-<a class="sourceLine" id="cb3-14" data-line-number="14"><span class="co">#&gt; 10 data:image/gif;base64,R0lGODlhAQABAIA… Taron Egerton in Rocketman, Phoebe Wa…</span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="co">#&gt;    src                                        alt                               </span></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="co">#&gt;    &lt;chr&gt;                                      &lt;chr&gt;                             </span></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="co">#&gt;  1 https://a1.api.bbc.co.uk/hit.xiti?&amp;col=1&amp;… ""                                </span></a>
+<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="co">#&gt;  2 https://ichef.bbci.co.uk/news/320/cpsprod… Four party leaders                </span></a>
+<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="co">#&gt;  3 data:image/gif;base64,R0lGODlhAQABAIAAAAA… Jonathan Ashworth                 </span></a>
+<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="co">#&gt;  4 data:image/gif;base64,R0lGODlhAQABAIAAAAA… Liverpool docks                   </span></a>
+<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="co">#&gt;  5 data:image/gif;base64,R0lGODlhAQABAIAAAAA… Manish Shah                       </span></a>
+<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="co">#&gt;  6 data:image/gif;base64,R0lGODlhAQABAIAAAAA… Jerry Nadler announces the articl…</span></a>
+<a class="sourceLine" id="cb3-11" data-line-number="11"><span class="co">#&gt;  7 https://ichef.bbci.co.uk/news/320/cpsprod… Index promo                       </span></a>
+<a class="sourceLine" id="cb3-12" data-line-number="12"><span class="co">#&gt;  8 data:image/gif;base64,R0lGODlhAQABAIAAAAA… Roxette                           </span></a>
+<a class="sourceLine" id="cb3-13" data-line-number="13"><span class="co">#&gt;  9 data:image/gif;base64,R0lGODlhAQABAIAAAAA… Roxette                           </span></a>
+<a class="sourceLine" id="cb3-14" data-line-number="14"><span class="co">#&gt; 10 data:image/gif;base64,R0lGODlhAQABAIAAAAA… Greenland ice                     </span></a>
 <a class="sourceLine" id="cb3-15" data-line-number="15"><span class="co">#&gt; # … with 99 more rows</span></a></code></pre></div>
 </div>
 <div id="check-alt-text" class="section level1">
@@ -145,15 +145,15 @@
 <a class="sourceLine" id="cb5-3" data-line-number="3"><span class="co">#&gt;    src   alt   alt_exists nchar_count nchar_assess file_ext self_evident</span></a>
 <a class="sourceLine" id="cb5-4" data-line-number="4"><span class="co">#&gt;    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;            &lt;int&gt; &lt;chr&gt;        &lt;lgl&gt;    &lt;lgl&gt;       </span></a>
 <a class="sourceLine" id="cb5-5" data-line-number="5"><span class="co">#&gt;  1 http… ""    Empty               NA &lt;NA&gt;         NA       NA          </span></a>
-<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="co">#&gt;  2 http… Ques… Exists              13 Short        FALSE    FALSE       </span></a>
-<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="co">#&gt;  3 data… Jack  Exists               4 Short        FALSE    FALSE       </span></a>
-<a class="sourceLine" id="cb5-8" data-line-number="8"><span class="co">#&gt;  4 data… Tour… Exists              50 OK           FALSE    TRUE        </span></a>
-<a class="sourceLine" id="cb5-9" data-line-number="9"><span class="co">#&gt;  5 data… Jose… Exists              13 Short        FALSE    FALSE       </span></a>
-<a class="sourceLine" id="cb5-10" data-line-number="10"><span class="co">#&gt;  6 http… Unde… Exists              49 OK           FALSE    FALSE       </span></a>
-<a class="sourceLine" id="cb5-11" data-line-number="11"><span class="co">#&gt;  7 data… Shan… Exists              19 Short        FALSE    FALSE       </span></a>
-<a class="sourceLine" id="cb5-12" data-line-number="12"><span class="co">#&gt;  8 data… Anto… Exists              31 OK           FALSE    FALSE       </span></a>
-<a class="sourceLine" id="cb5-13" data-line-number="13"><span class="co">#&gt;  9 data… Anto… Exists              31 OK           FALSE    FALSE       </span></a>
-<a class="sourceLine" id="cb5-14" data-line-number="14"><span class="co">#&gt; 10 data… Taro… Exists              90 OK           FALSE    FALSE       </span></a>
+<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="co">#&gt;  2 http… Four… Exists              18 Short        FALSE    FALSE       </span></a>
+<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="co">#&gt;  3 data… Jona… Exists              17 Short        FALSE    FALSE       </span></a>
+<a class="sourceLine" id="cb5-8" data-line-number="8"><span class="co">#&gt;  4 data… Live… Exists              15 Short        FALSE    FALSE       </span></a>
+<a class="sourceLine" id="cb5-9" data-line-number="9"><span class="co">#&gt;  5 data… Mani… Exists              11 Short        FALSE    FALSE       </span></a>
+<a class="sourceLine" id="cb5-10" data-line-number="10"><span class="co">#&gt;  6 data… Jerr… Exists              63 OK           FALSE    FALSE       </span></a>
+<a class="sourceLine" id="cb5-11" data-line-number="11"><span class="co">#&gt;  7 http… Inde… Exists              11 Short        FALSE    FALSE       </span></a>
+<a class="sourceLine" id="cb5-12" data-line-number="12"><span class="co">#&gt;  8 data… Roxe… Exists               7 Short        FALSE    FALSE       </span></a>
+<a class="sourceLine" id="cb5-13" data-line-number="13"><span class="co">#&gt;  9 data… Roxe… Exists               7 Short        FALSE    FALSE       </span></a>
+<a class="sourceLine" id="cb5-14" data-line-number="14"><span class="co">#&gt; 10 data… Gree… Exists              13 Short        FALSE    FALSE       </span></a>
 <a class="sourceLine" id="cb5-15" data-line-number="15"><span class="co">#&gt; # … with 99 more rows, and 3 more variables: terminal_punct &lt;lgl&gt;,</span></a>
 <a class="sourceLine" id="cb5-16" data-line-number="16"><span class="co">#&gt; #   spellcheck &lt;list&gt;, not_basic &lt;list&gt;</span></a></code></pre></div>
 <p>And here is the structure now:</p>
@@ -161,15 +161,15 @@
 <a class="sourceLine" id="cb6-2" data-line-number="2"><span class="co">#&gt; Observations: 109</span></a>
 <a class="sourceLine" id="cb6-3" data-line-number="3"><span class="co">#&gt; Variables: 10</span></a>
 <a class="sourceLine" id="cb6-4" data-line-number="4"><span class="co">#&gt; $ src            &lt;chr&gt; "https://a1.api.bbc.co.uk/hit.xiti?&amp;col=1&amp;from=p&amp;ptag=…</span></a>
-<a class="sourceLine" id="cb6-5" data-line-number="5"><span class="co">#&gt; $ alt            &lt;chr&gt; "", "Question Time", "Jack", "Tourist take pictures of…</span></a>
+<a class="sourceLine" id="cb6-5" data-line-number="5"><span class="co">#&gt; $ alt            &lt;chr&gt; "", "Four party leaders", "Jonathan Ashworth", "Liverp…</span></a>
 <a class="sourceLine" id="cb6-6" data-line-number="6"><span class="co">#&gt; $ alt_exists     &lt;chr&gt; "Empty", "Exists", "Exists", "Exists", "Exists", "Exis…</span></a>
-<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="co">#&gt; $ nchar_count    &lt;int&gt; NA, 13, 4, 50, 13, 49, 19, 31, 31, 90, 34, 26, 24, 18,…</span></a>
-<a class="sourceLine" id="cb6-8" data-line-number="8"><span class="co">#&gt; $ nchar_assess   &lt;chr&gt; NA, "Short", "Short", "OK", "Short", "OK", "Short", "O…</span></a>
+<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="co">#&gt; $ nchar_count    &lt;int&gt; NA, 18, 17, 15, 11, 63, 11, 7, 7, 13, 53, 40, 14, 4, 2…</span></a>
+<a class="sourceLine" id="cb6-8" data-line-number="8"><span class="co">#&gt; $ nchar_assess   &lt;chr&gt; NA, "Short", "Short", "Short", "Short", "OK", "Short",…</span></a>
 <a class="sourceLine" id="cb6-9" data-line-number="9"><span class="co">#&gt; $ file_ext       &lt;lgl&gt; NA, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, F…</span></a>
-<a class="sourceLine" id="cb6-10" data-line-number="10"><span class="co">#&gt; $ self_evident   &lt;lgl&gt; NA, FALSE, FALSE, TRUE, FALSE, FALSE, FALSE, FALSE, FA…</span></a>
+<a class="sourceLine" id="cb6-10" data-line-number="10"><span class="co">#&gt; $ self_evident   &lt;lgl&gt; NA, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, F…</span></a>
 <a class="sourceLine" id="cb6-11" data-line-number="11"><span class="co">#&gt; $ terminal_punct &lt;lgl&gt; NA, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, F…</span></a>
-<a class="sourceLine" id="cb6-12" data-line-number="12"><span class="co">#&gt; $ spellcheck     &lt;list&gt; [&lt;&gt;, &lt;&gt;, &lt;&gt;, &lt;&gt;, "McCann", &lt;&gt;, &lt;"Shante", "Turay"&gt;, &lt;…</span></a>
-<a class="sourceLine" id="cb6-13" data-line-number="13"><span class="co">#&gt; $ not_basic      &lt;list&gt; [&lt;&gt;, &lt;&gt;, "jack", &lt;"tourist", "pictures", "eruption"&gt;,…</span></a></code></pre></div>
+<a class="sourceLine" id="cb6-12" data-line-number="12"><span class="co">#&gt; $ spellcheck     &lt;list&gt; [&lt;&gt;, &lt;&gt;, "Ashworth", &lt;&gt;, "Manish", "Nadler", &lt;&gt;, "Rox…</span></a>
+<a class="sourceLine" id="cb6-13" data-line-number="13"><span class="co">#&gt; $ not_basic      &lt;list&gt; [&lt;&gt;, &lt;"four", "party", "leaders"&gt;, &lt;"jonathan", "ashw…</span></a></code></pre></div>
 </div>
   </div>
 
