@@ -126,9 +126,10 @@ alt_check <- function(
       .f = ~.x[.y == FALSE]
     )
     
-  ) %>% 
-    tibble::as_tibble() %>%   # ensure tibble output
-    dplyr::select(-.data$alt_tokens, -.data$detect_basic)
+  )
+  
+  alt_df <- tibble::as_tibble(alt_df)   # ensure tibble output
+  alt_df <- dplyr::select(alt_df, -.data$alt_tokens, -.data$detect_basic)
   
     # Return
     return(alt_df)

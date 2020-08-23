@@ -17,7 +17,6 @@ RoxygenNote: 7.1.0
 Imports:
     dplyr (>= 0.8.3),
     hunspell (>= 3.0),
-    magrittr (>= 1.5),
     polite (>= 0.1.0),
     purrr (>= 0.3.3),
     rlang (>= 0.4.1),

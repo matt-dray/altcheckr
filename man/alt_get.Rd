@@ -7,7 +7,8 @@
 alt_get(webpage, all_attributes = FALSE)
 }
 \arguments{
-\item{webpage}{A character string describing the URL of a webpage.}
+\item{webpage}{A character string describing the URL of a webpage. Must be a
+full path including \code{https://www.} where appropriate.}
 
 \item{all_attributes}{Logical. Do you want to return \emph{all} the image
 attributes as columns or just \code{src}, \code{alt} and \code{longdesc}
