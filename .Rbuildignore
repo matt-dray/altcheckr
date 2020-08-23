@@ -1,11 +1,8 @@
 ^CODE_OF_CONDUCT\.md$
-^codecov\.yml$
-^\.travis\.yml$
 ^altcheckr\.Rproj$
 ^\.Rproj\.user$
 ^LICENSE\.md$
 ^_pkgdown\.yml$
-^docs$
 ^pkgdown$
 ^data-raw$
 ^\.github$
