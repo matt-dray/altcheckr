@@ -1,4 +1,4 @@
-# altcheckr <img src='man/figures/logo.png' align="right" height="139" />
+# {altcheckr} <img src='man/figures/logo.png' align="right" height="139" />
 
 An in-development R package to assess the alternative (alt) text from a web page.
 
