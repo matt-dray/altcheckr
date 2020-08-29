@@ -3,13 +3,15 @@
 \docType{data}
 \name{example_get}
 \alias{example_get}
-\title{Example of alt_get() output}
-\format{A data frame with 11 rows and 2 variables:
+\title{Example of alt_get() Output}
+\format{
+A data frame with 11 rows and 2 variables:
 \describe{
   \item{src}{a fake image source}
   \item{alt}{dummy alt text with different types of problems}
   ...
-}}
+}
+}
 \usage{
 example_get
 }

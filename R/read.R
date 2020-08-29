@@ -3,7 +3,8 @@
 #' @description Scrape (politely) a web page's HTML and extract the attributes
 #'     from each image element (\code{<img>}) on that page.
 #' 
-#' @param webpage A character string describing the URL of a webpage.
+#' @param webpage A character string describing the URL of a webpage. Must be a
+#'     full path including \code{https://www.} where appropriate.
 #' @param all_attributes Logical. Do you want to return \emph{all} the image
 #'     attributes as columns or just \code{src}, \code{alt} and \code{longdesc}
 #'     (if it exists)?
@@ -46,16 +47,17 @@ alt_get <- function(webpage, all_attributes = FALSE) {
     stop("Cannot fetch content. NULL was returned from the scrape.")
   }
   
-  # Extract attributes from the img HTML elements only
-  img_df <- page_html %>% 
-    rvest::html_nodes("img") %>% 
-    purrr::map(xml2::xml_attrs) %>% 
-    purrr::map_df(~as.list(.))
+  # Extract attributes from the img HTML elements only, then make rectangular
+  img_nodes <- rvest::html_nodes(page_html, "img")
+  img_retrieve <- purrr::map(img_nodes, xml2::xml_attrs)
+  img_df <- purrr::map_df(img_retrieve, ~as.list(.))
   
-  # Create an alt column if it doesn't exist
-  if (!any(names(img_df) == "alt")) img_df$alt <- NA_character_
+  # Create an empty alt column if it doesn't exist already
+  if (!any(names(img_df) == "alt")) {
+    img_df$alt <- NA_character_ 
+  }
   
-  # Reduce to only src and alt (and longdesc if it exists)
+  # Simplify to only src and alt (and longdesc if it exists)
   if (all_attributes == FALSE & any(names(img_df) == "longdesc")) {
     img_df <- img_df[, c("src", "alt", "longdesc")]
   } else if (all_attributes == FALSE) {
