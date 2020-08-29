@@ -1,6 +1,6 @@
 Package: altcheckr
 Title: Assess Image Alt Text on a Web Page
-Version: 0.0.0.9000
+Version: 0.1.0
 Authors@R: person("Matt", "Dray", email = "mwdray@gmail.com", role = c("aut", "cre"))
 Description: Scrape image element attributes from a webpage, detect alternative
     (alt) text and assess it with simple heuristics. Alt text is important for users

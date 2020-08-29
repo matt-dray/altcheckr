@@ -3,7 +3,7 @@
 \docType{data}
 \name{example_get}
 \alias{example_get}
-\title{Example of alt_get() output}
+\title{Example of alt_get() Output}
 \format{
 A data frame with 11 rows and 2 variables:
 \describe{

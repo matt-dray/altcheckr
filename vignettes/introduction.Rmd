@@ -4,7 +4,7 @@ author: "Matt Dray"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteIndexEntry{Introduction to {altcheckr} functions}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -22,13 +22,13 @@ You can install {altcheckr} from GitHub using the {remotes} package.
 
 ```{r install, eval=FALSE}
 install.packages(remotes)
-install_github("matt-dray/altcheckr")
+remotes::install_github("matt-dray/altcheckr")
 library(altcheckr)
 ```
 
 # Get image elements
 
-Use the `alt_get()` function to scrape the attributes of each <img> element
+Use the `alt_get()` function to scrape the attributes of each `<img>` element
 on a web page that you name in the `url` argument,
 
 The function uses {xml2} and {rvest} to scrape a given web page and extract
@@ -45,7 +45,7 @@ complex images). The `alt` column will be created and filled with `NA` if it
 isn't present.
 
 Setting the argument `all_attributes` to `TRUE` will return all the attributes
-provided in the <img> element, not just `src`, `alt` and `longdesc`.
+provided in the `<img>` element, not just `src`, `alt` and `longdesc`.
 
 Here is a preview of the tibble that is output from `alt_get()`:
 

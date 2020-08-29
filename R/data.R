@@ -1,4 +1,4 @@
-#' Example of alt_get() output
+#' Example of alt_get() Output
 #'
 #' @description A dummy data frame to mimic output from \code{\link{alt_get}}.
 #'
