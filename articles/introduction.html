@@ -38,7 +38,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">altcheckr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.0</span>
       </span>
     </div>
 
@@ -65,6 +65,9 @@
     </li>
   </ul>
 </li>
+<li>
+  <a href="../news/index.html">Changelog</a>
+</li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
@@ -89,7 +92,7 @@
       <h1 data-toc-skip>Introduction to {altcheckr} functions</h1>
                         <h4 class="author">Matt Dray</h4>
             
-            <h4 class="date">2020-08-23</h4>
+            <h4 class="date">2020-08-29</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/matt-dray/altcheckr/blob/master/vignettes/introduction.Rmd"><code>vignettes/introduction.Rmd</code></a></small>
       <div class="hidden name"><code>introduction.Rmd</code></div>
@@ -103,33 +106,33 @@
 <a href="#install" class="anchor"></a>Install</h1>
 <p>You can install {altcheckr} from GitHub using the {remotes} package.</p>
 <div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="no">remotes</span>)
-<span class="fu">install_github</span>(<span class="st">"matt-dray/altcheckr"</span>)
+<span class="kw pkg">remotes</span><span class="kw ns">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span>(<span class="st">"matt-dray/altcheckr"</span>)
 <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">altcheckr</span>)</pre></body></html></div>
 </div>
 <div id="get-image-elements" class="section level1">
 <h1 class="hasAnchor">
 <a href="#get-image-elements" class="anchor"></a>Get image elements</h1>
-<p>Use the <code><a href="../reference/alt_get.html">alt_get()</a></code> function to scrape the attributes of each <img> element on a web page that you name in the <code>url</code> argument,</p>
+<p>Use the <code><a href="../reference/alt_get.html">alt_get()</a></code> function to scrape the attributes of each <code>&lt;img&gt;</code> element on a web page that you name in the <code>url</code> argument,</p>
 <p>The function uses {xml2} and {rvest} to scrape a given web page and extract image attributes, with a little bit of {purrr} to get it into a data frame.</p>
 <div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="no">get_img</span> <span class="kw">&lt;-</span> <span class="fu"><a href="../reference/alt_get.html">alt_get</a></span>(<span class="st">"https://www.bbc.co.uk/news"</span>)</pre></body></html></div>
 <p>The function returns a tibble where each row is an image element from that page and columns are the the image source (<code>src</code>), alt text (<code>alt</code>) and link to a file with a longer description (<code>longdesc</code>), if it exists (sometimes used for complex images). The <code>alt</code> column will be created and filled with <code>NA</code> if it isn’t present.</p>
-<p>Setting the argument <code>all_attributes</code> to <code>TRUE</code> will return all the attributes provided in the <img> element, not just <code>src</code>, <code>alt</code> and <code>longdesc</code>.</p>
+<p>Setting the argument <code>all_attributes</code> to <code>TRUE</code> will return all the attributes provided in the <code>&lt;img&gt;</code> element, not just <code>src</code>, <code>alt</code> and <code>longdesc</code>.</p>
 <p>Here is a preview of the tibble that is output from <code><a href="../reference/alt_get.html">alt_get()</a></code>:</p>
 <div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span>(<span class="no">get_img</span>)
-<span class="co">#&gt; # A tibble: 54 x 2</span>
+<span class="co">#&gt; # A tibble: 49 x 2</span>
 <span class="co">#&gt;    src                                    alt                                   </span>
 <span class="co">#&gt;    &lt;chr&gt;                                  &lt;chr&gt;                                 </span>
 <span class="co">#&gt;  1 https://a1.api.bbc.co.uk/hit.xiti?&amp;co… ""                                    </span>
-<span class="co">#&gt;  2 https://ichef.bbci.co.uk/news/null/cp… "US Postal Service worker pushes a ma…</span>
-<span class="co">#&gt;  3 data:image/gif;base64,R0lGODlhAQABAIA… "Belarussian President Alexander Luka…</span>
-<span class="co">#&gt;  4 data:image/gif;base64,R0lGODlhAQABAIA… "School pupils socially distance"     </span>
-<span class="co">#&gt;  5 data:image/gif;base64,R0lGODlhAQABAIA… "Chinese-owned TikTok video app has a…</span>
-<span class="co">#&gt;  6 data:image/gif;base64,R0lGODlhAQABAIA… "Fire-fighters are working 72-hour sh…</span>
-<span class="co">#&gt;  7 data:image/gif;base64,R0lGODlhAQABAIA… "Emergency staff outside the club in …</span>
-<span class="co">#&gt;  8 data:image/gif;base64,R0lGODlhAQABAIA… "Crowds of young people"              </span>
-<span class="co">#&gt;  9 data:image/gif;base64,R0lGODlhAQABAIA… "Flowers in Christchurch after the sh…</span>
-<span class="co">#&gt; 10 data:image/gif;base64,R0lGODlhAQABAIA… "File picture of Miroslava Breach"    </span>
-<span class="co">#&gt; # … with 44 more rows</span></pre></body></html></div>
+<span class="co">#&gt;  2 https://ichef.bbci.co.uk/news/null/cp… "Chadwick Boseman"                    </span>
+<span class="co">#&gt;  3 data:image/gif;base64,R0lGODlhAQABAIA… "March"                               </span>
+<span class="co">#&gt;  4 data:image/gif;base64,R0lGODlhAQABAIA… "A fan poses with a cosplayer portray…</span>
+<span class="co">#&gt;  5 data:image/gif;base64,R0lGODlhAQABAIA… "An empty basketball court after the …</span>
+<span class="co">#&gt;  6 data:image/gif;base64,R0lGODlhAQABAIA… "Police and protesters"               </span>
+<span class="co">#&gt;  7 data:image/gif;base64,R0lGODlhAQABAIA… "screengrab from webcast"             </span>
+<span class="co">#&gt;  8 data:image/gif;base64,R0lGODlhAQABAIA… "Jacob Blake"                         </span>
+<span class="co">#&gt;  9 data:image/gif;base64,R0lGODlhAQABAIA… "father putting mask on son in school…</span>
+<span class="co">#&gt; 10 data:image/gif;base64,R0lGODlhAQABAIA… "A burnt out light truck pictured a d…</span>
+<span class="co">#&gt; # … with 39 more rows</span></pre></body></html></div>
 </div>
 <div id="check-alt-text" class="section level1">
 <h1 class="hasAnchor">
@@ -140,35 +143,35 @@
 <p>This will return the same tibble as <code><a href="../reference/alt_get.html">alt_get()</a></code>, but new columns have now been appended.</p>
 <p>Each new column is the outcome of a check for a possible accessibility issue with the alt text. For example, whether the alt text actually exists and whether it is long.</p>
 <div class="sourceCode" id="cb5"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span>(<span class="no">check_img</span>)
-<span class="co">#&gt; # A tibble: 54 x 10</span>
+<span class="co">#&gt; # A tibble: 49 x 10</span>
 <span class="co">#&gt;    src   alt   alt_exists nchar_count nchar_assess file_ext self_evident</span>
 <span class="co">#&gt;    &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;            &lt;int&gt; &lt;chr&gt;        &lt;lgl&gt;    &lt;lgl&gt;       </span>
 <span class="co">#&gt;  1 http… ""    Empty               NA &lt;NA&gt;         NA       NA          </span>
-<span class="co">#&gt;  2 http… "US … Exists             104 OK           FALSE    FALSE       </span>
-<span class="co">#&gt;  3 data… "Bel… Exists              84 OK           FALSE    FALSE       </span>
-<span class="co">#&gt;  4 data… "Sch… Exists              31 OK           FALSE    FALSE       </span>
-<span class="co">#&gt;  5 data… "Chi… Exists              69 OK           FALSE    FALSE       </span>
-<span class="co">#&gt;  6 data… "Fir… Exists              86 OK           FALSE    FALSE       </span>
-<span class="co">#&gt;  7 data… "Eme… Exists              40 OK           FALSE    FALSE       </span>
-<span class="co">#&gt;  8 data… "Cro… Exists              22 OK           FALSE    FALSE       </span>
-<span class="co">#&gt;  9 data… "Flo… Exists              56 OK           FALSE    FALSE       </span>
-<span class="co">#&gt; 10 data… "Fil… Exists              32 OK           FALSE    TRUE        </span>
-<span class="co">#&gt; # … with 44 more rows, and 3 more variables: terminal_punct &lt;lgl&gt;,</span>
+<span class="co">#&gt;  2 http… "Cha… Exists              16 Short        FALSE    FALSE       </span>
+<span class="co">#&gt;  3 data… "Mar… Exists               5 Short        FALSE    FALSE       </span>
+<span class="co">#&gt;  4 data… "A f… Exists             198 Long         FALSE    FALSE       </span>
+<span class="co">#&gt;  5 data… "An … Exists              47 OK           FALSE    FALSE       </span>
+<span class="co">#&gt;  6 data… "Pol… Exists              21 OK           FALSE    FALSE       </span>
+<span class="co">#&gt;  7 data… "scr… Exists              23 OK           FALSE    FALSE       </span>
+<span class="co">#&gt;  8 data… "Jac… Exists              11 Short        FALSE    FALSE       </span>
+<span class="co">#&gt;  9 data… "fat… Exists              44 OK           FALSE    FALSE       </span>
+<span class="co">#&gt; 10 data… "A b… Exists             118 OK           FALSE    TRUE        </span>
+<span class="co">#&gt; # … with 39 more rows, and 3 more variables: terminal_punct &lt;lgl&gt;,</span>
 <span class="co">#&gt; #   spellcheck &lt;list&gt;, not_basic &lt;list&gt;</span></pre></body></html></div>
 <p>And here is the structure now:</p>
 <div class="sourceCode" id="cb6"><html><body><pre class="r"><span class="kw pkg">dplyr</span><span class="kw ns">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/reexports.html">glimpse</a></span>(<span class="no">check_img</span>)
-<span class="co">#&gt; Rows: 54</span>
+<span class="co">#&gt; Rows: 49</span>
 <span class="co">#&gt; Columns: 10</span>
 <span class="co">#&gt; $ src            &lt;chr&gt; "https://a1.api.bbc.co.uk/hit.xiti?&amp;col=1&amp;from=p&amp;ptag=…</span>
-<span class="co">#&gt; $ alt            &lt;chr&gt; "", "US Postal Service worker pushes a mail bin outsid…</span>
+<span class="co">#&gt; $ alt            &lt;chr&gt; "", "Chadwick Boseman", "March", "A fan poses with a c…</span>
 <span class="co">#&gt; $ alt_exists     &lt;chr&gt; "Empty", "Exists", "Exists", "Exists", "Exists", "Exis…</span>
-<span class="co">#&gt; $ nchar_count    &lt;int&gt; NA, 104, 84, 31, 69, 86, 40, 22, 56, 32, 127, 32, 127,…</span>
-<span class="co">#&gt; $ nchar_assess   &lt;chr&gt; NA, "OK", "OK", "OK", "OK", "OK", "OK", "OK", "OK", "O…</span>
+<span class="co">#&gt; $ nchar_count    &lt;int&gt; NA, 16, 5, 198, 47, 21, 23, 11, 44, 118, 91, 118, 91, …</span>
+<span class="co">#&gt; $ nchar_assess   &lt;chr&gt; NA, "Short", "Short", "Long", "OK", "OK", "OK", "Short…</span>
 <span class="co">#&gt; $ file_ext       &lt;lgl&gt; NA, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, F…</span>
 <span class="co">#&gt; $ self_evident   &lt;lgl&gt; NA, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, F…</span>
 <span class="co">#&gt; $ terminal_punct &lt;lgl&gt; NA, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE, F…</span>
-<span class="co">#&gt; $ spellcheck     &lt;list&gt; [&lt;&gt;, &lt;&gt;, &lt;"Belarussian", "Lukashenko", "Grodno"&gt;, &lt;&gt;,…</span>
-<span class="co">#&gt; $ not_basic      &lt;list&gt; [&lt;&gt;, &lt;"us", "postal", "service", "worker", "pushes", …</span></pre></body></html></div>
+<span class="co">#&gt; $ spellcheck     &lt;list&gt; [&lt;&gt;, "Boseman", &lt;&gt;, "cosplayer", &lt;&gt;, &lt;&gt;, "screengrab"…</span>
+<span class="co">#&gt; $ not_basic      &lt;list&gt; [&lt;&gt;, &lt;"chadwick", "boseman"&gt;, "march", &lt;"fan", "poses…</span></pre></body></html></div>
 </div>
   </div>
 
