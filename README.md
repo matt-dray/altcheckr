@@ -1,6 +1,6 @@
 # {altcheckr} <img src='man/figures/logo.png' align="right" height="139" />
 
-An in-development R package to assess the alternative (alt) text from a web page.
+An experimental R package to assess the alternative (alt) text from a web page.
 
 <!-- badges: start -->
 [![Project Status: Inactive – The project has reached a stable, usable state but is no longer being actively developed; support/maintenance will be provided as time allows.](https://www.repostatus.org/badges/latest/inactive.svg)](https://www.repostatus.org/#inactive)
